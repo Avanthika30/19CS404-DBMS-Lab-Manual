@@ -38,123 +38,161 @@ HAVING condition;
 
 **Question 1**
 --
--- Paste Question 1 here
+How many prescriptions were written for each medication?
 
 ```sql
--- Paste your SQL code below for Question 1
+SELECT Medication,COUNT(PrescriptionID) AS TotalPrescriptions 
+FROM Prescriptions 
+GROUP BY Medication;
 ```
 
 **Output:**
 
-![Output1](output.png)
+<img width="918" height="830" alt="image" src="https://github.com/user-attachments/assets/e7629315-af04-4d1f-a939-c7f35eda64ba" />
+
 
 **Question 2**
 ---
--- Paste Question 2 here
+How many prescriptions were written in each frequency category (e.g., once daily, twice daily)?
+
+Sample tablePrescriptions Table
 
 ```sql
--- Paste your SQL code below for Question 2
+SELECT Frequency,COUNT(PrescriptionID) AS TotalPrescriptions 
+FROM Prescriptions 
+GROUP BY Frequency;
 ```
 
 **Output:**
 
-![Output2](output.png)
+<img width="851" height="610" alt="image" src="https://github.com/user-attachments/assets/1c0656e6-1ac1-438c-a50c-c09339affe03" />
+
 
 **Question 3**
 ---
--- Paste Question 3 here
+How many doctors specialize in each medical specialty?
 
 ```sql
--- Paste your SQL code below for Question 3
+SELECT Specialty,COUNT(Specialty) AS TotalDocto 
+FROM Doctors 
+GROUP BY Specialty;
 ```
 
 **Output:**
 
-![Output3](output.png)
+<img width="854" height="755" alt="image" src="https://github.com/user-attachments/assets/01680a0b-a26b-4748-8aac-6fc58b8eae6d" />
+
 
 **Question 4**
 ---
--- Paste Question 4 here
+Write a SQL query to find the total number of unique cities in the customer table?
 
 ```sql
--- Paste your SQL code below for Question 4
+SELECT COUNT(DISTINCT city) AS unique_cities
+FROM customer;
 ```
 
 **Output:**
 
-![Output4](output.png)
+<img width="611" height="387" alt="image" src="https://github.com/user-attachments/assets/1e65e6bc-5459-47c0-8549-d7fda8eb0435" />
+
 
 **Question 5**
 ---
--- Paste Question 5 here
+Write a SQL query to Calculate the average income of the employees with names starting with 'A': 
 
 ```sql
--- Paste your SQL code below for Question 5
+SELECT AVG(income) AS avg_income
+FROM employee
+where name LIKE 'A%';
+
 ```
 
 **Output:**
 
-![Output5](output.png)
+<img width="447" height="388" alt="image" src="https://github.com/user-attachments/assets/70744658-d71b-43c4-a36e-245cf0813e02" />
+
 
 **Question 6**
 ---
--- Paste Question 6 here
+Write a SQL query to find the Fruit with the lowest available quantity.
 
 ```sql
--- Paste your SQL code below for Question 6
+SELECT name AS fruit_name,MIN(inventory) AS lowest_quantity
+FROM fruits
+ORDER BY inventory ASC LIMIT 1;
 ```
 
 **Output:**
 
-![Output6](output.png)
+<img width="711" height="383" alt="image" src="https://github.com/user-attachments/assets/69072834-1c81-45a6-aa5b-d9147036c449" />
+
 
 **Question 7**
 ---
--- Paste Question 7 here
-
+Write a SQL query to find the maximum purchase amount.
 ```sql
--- Paste your SQL code below for Question 7
+SELECT MAX(purch_amt) AS MAXIMUM
+FROM orders;
 ```
 
 **Output:**
 
-![Output7](output.png)
+<img width="448" height="379" alt="image" src="https://github.com/user-attachments/assets/fecd5f85-c7d2-4fe8-b15f-b1e3cc11628b" />
 
 **Question 8**
 ---
--- Paste Question 8 here
+Write the SQL query that accomplishes the grouping of data by age intervals using the expression (age/5)5, calculates the minimum age for each group, and excludes groups where the minimum age is not less than 25.
 
 ```sql
--- Paste your SQL code below for Question 8
+SELECT (age/5)*5 AS age_group,MIN(age)
+FROM customer1
+GROUP BY age_group
+HAVING MIN(age)<25;
 ```
 
 **Output:**
 
-![Output8](output.png)
+<img width="628" height="390" alt="image" src="https://github.com/user-attachments/assets/fb945db7-0268-49e7-9893-e7b73d36688e" />
+
 
 **Question 9**
 ---
--- Paste Question 9 here
+Write the SQL query that performs grouping by age groups and displays the maximum salary for each group, excluding groups where the maximum salary is not greater than 8000. 
+
+Note: Calculate the age group as multiples of 5.
+
+Eg., 20,22,23 comes in age group 20. 
+
+25,27,29 comes in age group 25.
 
 ```sql
--- Paste your SQL code below for Question 9
+SELECT (age/5)*5 AS age_group,MAX(salary)
+FROM customer1
+GROUP BY age_group
+HAVING MAX(salary)>8000;
 ```
 
 **Output:**
 
-![Output9](output.png)
+<img width="683" height="425" alt="image" src="https://github.com/user-attachments/assets/9e36cca4-a873-4552-9558-ed001e1abb25" />
+
 
 **Question 10**
 ---
--- Paste Question 10 here
+Write the SQL query that accomplishes the selection of total number of products for each category from the "products" table, and includes only those products where the minimum category ID is less than 3.
 
 ```sql
--- Paste your SQL code below for Question 10
+SELECT category_id,count(product_name) 
+FROM products
+where category_id<3
+GROUP BY category_id;
 ```
 
 **Output:**
 
-![Output10](output.png)
+<img width="834" height="435" alt="image" src="https://github.com/user-attachments/assets/f739788c-2b01-41ae-b4ce-4673229ef8b5" />
+
 
 
 ## RESULT
