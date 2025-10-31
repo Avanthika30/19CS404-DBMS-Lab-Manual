@@ -237,5 +237,4 @@ WHERE dosage = (
 ## RESULT
 Thus, the SQL queries to implement subqueries and views have been executed successfully.
 
-
 <img width="1893" height="1008" alt="image" src="https://github.com/user-attachments/assets/bd2aca2a-5a6a-4270-b939-5d74677d209f" />
