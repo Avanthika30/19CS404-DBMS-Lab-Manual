@@ -54,123 +54,238 @@ ON table1.column = table2.column;
 
 **Question 1**
 --
--- Paste Question 1 here
+Write the SQL query that achieves the selection of the first name from the "patients" table, with an inner join on the "patient_id" column and a condition filtering for surgeries with a surgery date of '2024-01-15'.
 
 ```sql
--- Paste your SQL code below for Question 1
+SELECT p.first_name
+FROM patients p
+INNER JOIN surgeries s
+ON p.patient_id = s.patient_id
+WHERE s.surgery_date = '2024-01-15';
 ```
 
 **Output:**
 
-![Output1](output.png)
+<img width="520" height="459" alt="image" src="https://github.com/user-attachments/assets/ffb6babb-65f3-4773-830c-6d772eab05f1" />
 
 **Question 2**
 ---
--- Paste Question 2 here
+From the following tables write a SQL query to find salespeople who received commissions of more than 12 percent from the company. Return Customer Name, customer city, Salesman, commission.  
+
+Sample table: customer
 
 ```sql
--- Paste your SQL code below for Question 2
+SELECT 
+    c.cust_name AS "Customer Name",
+    c.city AS "city",
+    s.name AS "Salesman",
+    s.commission
+FROM 
+    customer c
+INNER JOIN 
+    salesman s
+ON 
+    c.salesman_id = s.salesman_id
+WHERE 
+    s.commission > 0.12;
 ```
 
 **Output:**
 
-![Output2](output.png)
+<img width="1219" height="865" alt="image" src="https://github.com/user-attachments/assets/f569a5d0-1d46-41e2-a53d-cc49aee5d108" />
 
 **Question 3**
 ---
--- Paste Question 3 here
-
+Write the SQL query that achieves the selection of all columns from the "test_results" table (aliased as "t"), with an inner join on the "patient_id" column and a condition filtering for patients with the first name 'Alice'.
 ```sql
--- Paste your SQL code below for Question 3
+SELECT t.*
+FROM test_results t
+INNER JOIN patients p
+ON t.patient_id = p.patient_id
+WHERE p.first_name = 'Alice';
 ```
 
 **Output:**
 
-![Output3](output.png)
+<img width="1279" height="352" alt="image" src="https://github.com/user-attachments/assets/6ee7d7b2-80ea-490c-a654-3eec4527aa48" />
 
 **Question 4**
 ---
--- Paste Question 4 here
+From the following tables write a SQL query to find those orders where the order amount exists between 500 and 2000. Return ord_no, purch_amt, cust_name, city.
 
 ```sql
--- Paste your SQL code below for Question 4
+SELECT 
+    o.ord_no,
+    o.purch_amt,
+    c.cust_name,
+    c.city
+FROM 
+    orders o
+INNER JOIN 
+    customer c
+ON 
+    o.customer_id = c.customer_id
+WHERE 
+    o.purch_amt BETWEEN 500 AND 2000;
 ```
 
 **Output:**
 
-![Output4](output.png)
+<img width="1144" height="409" alt="image" src="https://github.com/user-attachments/assets/25298e20-4298-4b6a-bf86-ca11246921d4" />
 
 **Question 5**
 ---
--- Paste Question 5 here
+From the following tables write a SQL query to find those orders where the order amount exists between 500 and 2000. Return ord_no, purch_amt, cust_name, city.
+
+Sample table: customer
 
 ```sql
--- Paste your SQL code below for Question 5
+SELECT 
+    o.ord_no,
+    o.purch_amt,
+    c.cust_name,
+    c.city
+FROM 
+    orders o
+INNER JOIN 
+    customer c
+ON 
+    o.customer_id = c.customer_id
+WHERE 
+    o.purch_amt BETWEEN 500 AND 2000;
 ```
 
 **Output:**
 
-![Output5](output.png)
+<img width="1272" height="624" alt="image" src="https://github.com/user-attachments/assets/4712fa4b-76f7-4d82-a1fe-a824afd3c859" />
 
 **Question 6**
 ---
--- Paste Question 6 here
+From the following tables write a SQL query to display the customer name, customer city, grade, salesman, salesman city. The results should be sorted by ascending customer_id.  
+
+Sample table: customer
 
 ```sql
--- Paste your SQL code below for Question 6
+SELECT 
+    c.cust_name AS "cust_name",
+    c.city AS "city",
+    c.grade,
+    s.name AS "Salesman",
+    s.city AS "city"
+FROM 
+    customer c
+INNER JOIN 
+    salesman s
+ON 
+    c.salesman_id = s.salesman_id
+ORDER BY 
+    c.customer_id ASC;
 ```
 
 **Output:**
 
-![Output6](output.png)
+<img width="1233" height="743" alt="image" src="https://github.com/user-attachments/assets/281759d2-bb80-4609-b498-053ea3331371" />
 
 **Question 7**
 ---
--- Paste Question 7 here
-
+write a SQL query to find the salesperson and customer who reside in the same city. Return Salesman, cust_name and city.
 ```sql
--- Paste your SQL code below for Question 7
+SELECT 
+    s.name AS "Salesman",
+    c.cust_name,
+    c.city
+FROM 
+    salesman s
+INNER JOIN 
+    customer c
+ON 
+    s.city = c.city;
 ```
 
 **Output:**
 
-![Output7](output.png)
+<img width="814" height="575" alt="image" src="https://github.com/user-attachments/assets/c26a7d27-c62c-48d1-91fb-b0b5e2aa6b45" />
 
 **Question 8**
 ---
--- Paste Question 8 here
+Write the SQL query that achieves the selection of all columns from the "customer" table (aliased as "c"), with a left join on the "salesman_id" column and a condition filtering for salesman with the name 'Mc Lyon'.
+
+Customer Table: (customer_id, cust_name, city, grade, salesman_id)
+
+Salesman Table: (salesman_id, name, city, commission)
 
 ```sql
--- Paste your SQL code below for Question 8
+SELECT 
+    c.*
+FROM 
+    customer c
+LEFT JOIN 
+    salesman s
+ON 
+    c.salesman_id = s.salesman_id
+WHERE 
+    s.name = 'Mc Lyon';
 ```
 
 **Output:**
 
-![Output8](output.png)
+<img width="1195" height="346" alt="image" src="https://github.com/user-attachments/assets/1f94b42e-04d4-4bd6-bb59-525edcfce694" />
 
 **Question 9**
 ---
--- Paste Question 9 here
+Write the SQL query that achieves the selection of the "name" column from the "salesman" table (aliased as "s"), the "cust_name," "city," "grade," and "salesman_id" columns from the "customer" table (aliased as "c"), with a left join on the "salesman_id" column and a condition filtering for salesman_id values that have more than one associated customer.
+
+Customer Table: (customer_id, cust_name, city, grade, salesman_id)
+
+Salesman Table: (salesman_id, name, city, commission)
 
 ```sql
--- Paste your SQL code below for Question 9
+SELECT 
+    s.name,
+    c.cust_name,
+    c.city,
+    c.grade,
+    c.salesman_id
+FROM 
+    salesman s
+LEFT JOIN 
+    customer c
+ON 
+    s.salesman_id = c.salesman_id
+WHERE 
+    c.salesman_id IN (
+        SELECT salesman_id
+        FROM customer
+        GROUP BY salesman_id
+        HAVING COUNT(*) > 1
+    )
+ORDER BY c.grade;
 ```
 
 **Output:**
 
-![Output9](output.png)
+<img width="1204" height="513" alt="image" src="https://github.com/user-attachments/assets/7e334c11-b1da-4de5-b467-c5c3b64f6c6a" />
 
 **Question 10**
 ---
--- Paste Question 10 here
-
+From the following tables write a SQL query to find the salesperson(s) and the customer(s) he represents. Return Customer Name, city, Salesman, commission.
 ```sql
--- Paste your SQL code below for Question 10
+SELECT 
+    c.cust_name AS "Customer Name",
+    c.city AS "city",
+    s.name AS "Salesman",
+    s.commission
+FROM 
+    customer c
+INNER JOIN 
+    salesman s
+ON 
+    c.salesman_id = s.salesman_id;
 ```
 
 **Output:**
 
-![Output10](output.png)
+<img width="1034" height="741" alt="image" src="https://github.com/user-attachments/assets/f6aeca19-1be1-4ce8-9876-48cef99d4f9a" />
 
 
 ## RESULT
